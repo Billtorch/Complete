@@ -14,14 +14,12 @@ namespace CrmApp.Repository
         public DbSet<BasketProduct> BasketProducts { get; set; }
 
         private readonly string connectionString =
-            "Data Source=localhost;" +
-            "Initial Catalog = SkgCrm; " +
-            "Integrated Security = True;";
+           
 
-        //"Server =localhost; " +
-        //"Database = SkgCrm; " +
-        //"User Id = sa; " +
-        //"Password = passw0rd;";
+        "Server =localhost; " +
+        "Database = sql1; " +
+        "User Id = sa; " +
+        "Password = admin!@#123;";
 
         protected override void OnConfiguring
             (DbContextOptionsBuilder optionsBuilder)

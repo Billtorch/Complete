@@ -47,12 +47,11 @@ namespace CrmApp.Services
         }
 
         //FindBasketById
+        
         public Basket FindBasketById(int basketId)
         {
-            return db.Baskets
-                .Include(basket => basket.BasketProducts)
-                .Where(basket => basket.Id== basketId)
-                .First();
+            return db.Baskets.Find(basketId);
+                
         }
 
         //FindCustomerBaskets
@@ -67,22 +66,27 @@ namespace CrmApp.Services
 
         //RemoveProduct
 
-        public bool RemoveProduct(BasketProductOption bskProdOpt)
+        public bool DeleteBasketById(int id)
         {
 
-            BasketProduct bskProd = db.BasketProducts.Find( bskProdOpt   );
-
-            if (bskProd != null)
+            Basket basket = db.Baskets.Find(id);
+            if (basket != null)
             {
-                db.BasketProducts.Remove(bskProd);
+                db.Baskets.Remove(basket);
                 db.SaveChanges();
                 return true;
             }
             return false;
-
         }
 
 
 
+        
+
+
     }
+
+
+
 }
+
